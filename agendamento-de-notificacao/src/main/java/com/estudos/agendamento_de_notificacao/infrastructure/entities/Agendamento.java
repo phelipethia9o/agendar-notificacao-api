@@ -23,7 +23,7 @@ public class Agendamento {
 
     private String emailDestinatario;
     private String telefoneDestinatario;
-
+    private String mensagem;
 
     private LocalDateTime dataHoraEnvio;
     private LocalDateTime dataHoraAgendamento;
@@ -31,7 +31,7 @@ public class Agendamento {
 
     private StatusNotificacaoEnum statusNotificacao;
 
-    private String mensagem;
+
 
     @PrePersist
     private void prePersist(){
