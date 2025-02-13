@@ -5,10 +5,15 @@ import com.estudos.agendamento_de_notificacao.bussiness.mapper.IAgendamentoMappe
 import com.estudos.agendamento_de_notificacao.controller.dto.in.AgendamentoRecord;
 import com.estudos.agendamento_de_notificacao.controller.dto.out.AgendamentoRecordOut;
 
+import com.estudos.agendamento_de_notificacao.infrastructure.entities.Agendamento;
+import com.estudos.agendamento_de_notificacao.infrastructure.enums.StatusNotificacaoEnum;
 import com.estudos.agendamento_de_notificacao.infrastructure.exceptions.NotFoundException;
 import com.estudos.agendamento_de_notificacao.infrastructure.repositories.AgendamentoRepository;
 import lombok.RequiredArgsConstructor;
+import org.mapstruct.Mapping;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
 
 @RequiredArgsConstructor
 @Service
@@ -24,12 +29,26 @@ public class AgendamentoService {
     }
 
     public AgendamentoRecordOut buscarAgendamentoPorId(Long id){
-
         return agendamentoMapper.paraOut(
                 repository.findById(id).orElseThrow(
-                        () -> new NotFoundException("Id não encontrado!")));
+                        () -> new NotFoundException("Agendamento não encontrado!")));
 
     }
+
+    public AgendamentoRecordOut cancelarAgendamento(Long id) {
+        Agendamento agendamento = repository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Agendamento não encontrado!"));
+
+        agendamento.setDataHoraModificacao(LocalDateTime.now());
+        agendamento.setStatusNotificacao(StatusNotificacaoEnum.CANCELADO);
+
+        repository.save(agendamento);
+
+        return agendamentoMapper.paraOut(agendamento);
+    }
+
+
+
 
 
 
