@@ -4,11 +4,8 @@ import com.estudos.agendamento_de_notificacao.controller.dto.in.AgendamentoRecor
 import com.estudos.agendamento_de_notificacao.controller.dto.out.AgendamentoRecordOut;
 import com.estudos.agendamento_de_notificacao.infrastructure.entities.Agendamento;
 import org.mapstruct.Mapper;
-<<<<<<< HEAD
-import org.mapstruct.Mapping;
 
-=======
->>>>>>> feature/busca_agendamentos
+
 import static org.mapstruct.MappingConstants.ComponentModel.SPRING;
 
 @Mapper(componentModel = SPRING)
@@ -18,7 +15,4 @@ public interface IAgendamentoMapper {
 
     AgendamentoRecordOut paraOut(Agendamento agendamento);
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> feature/busca_agendamentos

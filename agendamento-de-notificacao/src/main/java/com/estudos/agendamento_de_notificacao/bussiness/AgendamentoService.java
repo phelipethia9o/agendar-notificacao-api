@@ -5,23 +5,16 @@ import com.estudos.agendamento_de_notificacao.bussiness.mapper.IAgendamentoMappe
 import com.estudos.agendamento_de_notificacao.controller.dto.in.AgendamentoRecord;
 import com.estudos.agendamento_de_notificacao.controller.dto.out.AgendamentoRecordOut;
 
-<<<<<<< HEAD
-import com.estudos.agendamento_de_notificacao.infrastructure.repositories.AgendamentoRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-
-=======
 import com.estudos.agendamento_de_notificacao.infrastructure.entities.Agendamento;
 import com.estudos.agendamento_de_notificacao.infrastructure.enums.StatusNotificacaoEnum;
 import com.estudos.agendamento_de_notificacao.infrastructure.exceptions.NotFoundException;
 import com.estudos.agendamento_de_notificacao.infrastructure.repositories.AgendamentoRepository;
 import lombok.RequiredArgsConstructor;
-import org.mapstruct.Mapping;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
->>>>>>> feature/busca_agendamentos
+
 @RequiredArgsConstructor
 @Service
 public class AgendamentoService {
@@ -34,8 +27,6 @@ public class AgendamentoService {
                 repository.save(
                         agendamentoMapper.paraEntity(agendamento)));
     }
-<<<<<<< HEAD
-=======
 
     public AgendamentoRecordOut buscarAgendamentoPorId(Long id){
         return agendamentoMapper.paraOut(
@@ -56,10 +47,4 @@ public class AgendamentoService {
         return agendamentoMapper.paraOut(agendamento);
     }
 
-
-
-
-
-
->>>>>>> feature/busca_agendamentos
 }
