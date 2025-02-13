@@ -23,7 +23,11 @@ public class Agendamento {
 
     private String emailDestinatario;
     private String telefoneDestinatario;
+<<<<<<< HEAD
 
+=======
+    private String mensagem;
+>>>>>>> feature/busca_agendamentos
 
     private LocalDateTime dataHoraEnvio;
     private LocalDateTime dataHoraAgendamento;
@@ -31,13 +35,21 @@ public class Agendamento {
 
     private StatusNotificacaoEnum statusNotificacao;
 
+<<<<<<< HEAD
     private String mensagem;
+=======
+
+>>>>>>> feature/busca_agendamentos
 
     @PrePersist
     private void prePersist(){
 
         dataHoraAgendamento = LocalDateTime.now();
+<<<<<<< HEAD
         statusNotificacao = StatusNotificacaoEnum.CANCELADO;
+=======
+        statusNotificacao = StatusNotificacaoEnum.AGENDADO;
+>>>>>>> feature/busca_agendamentos
 
     }
 }
